@@ -17,3 +17,6 @@ Provider = "pam"
 ExecutableScanning = false
 Executable = /apps/wrappers/bin/R-4.3.3.sh
 Executable = /apps/wrappers/bin/R-4.4.1.sh
+
+[RPackageRepository "CRAN"]
+URL = "https://p3m.dev/cran/__linux__/noble/latest"
