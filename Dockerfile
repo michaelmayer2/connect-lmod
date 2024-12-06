@@ -30,7 +30,7 @@ RUN bash -l -c "eb --prefix /apps -r /home/eb/.local/easybuild/easyconfigs/ -f /
 
 RUN bash -l -c "eb --prefix /apps -r /home/eb/.local/easybuild/easyconfigs/ -f /home/eb/.local/easybuild/easyconfigs/r/R/R-4.3.3-gfbf-2023b.eb"
 
-COPY eb/*.eb /home/eb
+COPY eb/*.eb /home/eb/
 
 RUN bash -l -c "cd /home/eb && eb -f R-bundle-Bioconductor-3.19-gfbf-2023b-R-4.4.1.eb -r .:.local/easybuild/easyconfigs/ --prefix /apps/"
 RUN bash -l -c "cd /home/eb && eb -f R-bundle-Bioconductor-3.18-gfbf-2023b-R-4.3.3.eb -r .:.local/easybuild/easyconfigs/ --prefix /apps/"
