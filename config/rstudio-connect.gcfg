@@ -14,5 +14,6 @@ Listen = ":3939"
 Provider = "password"
 
 [R]
+ExecutableScanning = false
 Executable = /apps/wrappers/bin/R-4.3.3.sh
 Executable = /apps/wrappers/bin/R-4.4.1.sh
