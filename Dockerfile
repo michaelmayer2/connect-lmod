@@ -41,9 +41,16 @@ ARG PWB_VERSION="2024.12.0-463.pro4"
 
 RUN curl -LO https://s3.amazonaws.com/rstudio-ide-build/server/jammy/amd64/rstudio-workbench-${PWB_VERSION}-amd64.deb && apt install -y ./rstudio-workbench-${PWB_VERSION}-amd64.deb && rm -f rstudio-workbench-${PWB_VERSION}-amd64.deb 
 
+RUN echo "modules-bin-path=/etc/profile.d/lmod.sh" >> /etc/rstudio/rserver.conf
+RUN echo "r-versions-scan=0" >> /etc/rstudio/rserver.conf
+
+RUN echo -e "Module: R-bundle-Bioconductor/3.18-gfbf-2023b-R-4.3.3\nLabel: R 4.3.3 with Bioconductor 3.18" > /etc/rstudio/r-versions
+RUN echo -e "\n\n" >> /etc/rstudio/r-versions
+RUN echo -e "Module: R-bundle-Bioconductor/3.19-gfbf-2023b-R-4.4.1\nLabel: R 4.4.1 with Bioconductor 3.19" >> /etc/rstudio/r-versions
+
 ARG PCT_VERSION="2024.11.0"
 
-RUN curl -O https://cdn.posit.co/connect/${PCT_VERSION%.*}/rstudio-connect_${PCT_VERSION}~ubuntu24_amd64.deb &&  apt install -y ./rstudio-connect_${PCT_VERSION}~ubuntu24_amd64.deb
+RUN curl -O https://cdn.posit.co/connect/${PCT_VERSION%.*}/rstudio-connect_${PCT_VERSION}~ubuntu24_amd64.deb &&  apt install -y ./rstudio-connect_${PCT_VERSION}~ubuntu24_amd64.deb && rm -f ./rstudio-connect_${PCT_VERSION}~ubuntu24_amd64.deb
 
 #COPY config/rstudio-connect.gcfg /etc/rstudio-connect
 
