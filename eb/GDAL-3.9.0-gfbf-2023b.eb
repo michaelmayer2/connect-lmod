@@ -10,7 +10,6 @@ description = """GDAL is a translator library for raster geospatial data formats
  data translation and processing."""
 
 toolchain = {'name': 'gfbf', 'version': '2023b'}
-toolchainopts = {'usempi': True}
 
 source_urls = ['https://download.osgeo.org/%(namelower)s/%(version)s/']
 sources = [SOURCELOWER_TAR_XZ]
