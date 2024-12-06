@@ -1,0 +1,18 @@
+; Posit Connect configuration file
+
+[Server]
+
+
+
+[HTTP]
+; Posit Connect will listen on this network address for HTTP connections.
+Listen = ":3939"
+
+
+[Authentication]
+; Specifies the type of user authentication.
+Provider = "password"
+
+[R]
+Executable = /apps/wrappers/bin/R-4.3.3.sh
+Executable = /apps/wrappers/bin/R-4.4.1.sh
