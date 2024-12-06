@@ -44,7 +44,7 @@ COPY config/rstudio-connect.gcfg /etc/rstudio-connect
 
 RUN mkdir -p /apps/wrappers/bin
 
-COPY scripts/R* /apps/wrappers/bin/
+COPY scripts/* /apps/wrappers/bin/
 
 RUN chmod +x /apps/wrappers/bin/*
 
