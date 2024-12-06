@@ -48,7 +48,5 @@ COPY scripts/* /apps/wrappers/bin/
 
 RUN chmod +x /apps/wrappers/bin/*
 
-ENV PCT_LICENSE
-
 ENTRYPOINT [ "/apps/wrappers/bin/connect.sh" ]
 
