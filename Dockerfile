@@ -40,13 +40,13 @@ ARG PCT_VERSION="2024.11.0"
 
 RUN curl -O https://cdn.posit.co/connect/${PCT_VERSION%.*}/rstudio-connect_${PCT_VERSION}~ubuntu24_amd64.deb &&  apt install -y ./rstudio-connect_${PCT_VERSION}~ubuntu24_amd64.deb
 
-COPY config/rstudio-connect.gcfg /etc/rstudio-connect
+#COPY config/rstudio-connect.gcfg /etc/rstudio-connect
 
 RUN mkdir -p /apps/wrappers/bin
 
-COPY scripts/* /apps/wrappers/bin/
+#COPY scripts/* /apps/wrappers/bin/
 
-RUN chmod +x /apps/wrappers/bin/*
+#RUN chmod +x /apps/wrappers/bin/*
 
 RUN useradd -s /bin/bash -m rstudio && echo 'rstudio:rstudio' | chpasswd
 
