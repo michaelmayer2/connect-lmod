@@ -30,12 +30,8 @@ RUN bash -l -c "eb --prefix /apps -r /home/eb/.local/easybuild/easyconfigs/ -f /
 
 RUN bash -l -c "eb --prefix /apps -r /home/eb/.local/easybuild/easyconfigs/ -f /home/eb/.local/easybuild/easyconfigs/r/R/R-4.3.3-gfbf-2023b.eb"
 
-RUN cd /home/eb && curl -LO https://raw.githubusercontent.com/easybuilders/easybuild-easyconfigs/refs/heads/develop/easybuild/easyconfigs/r/R-bundle-Bioconductor/R-bundle-Bioconductor-3.19-foss-2023b-R-4.4.1.eb && \
-        curl -LO https://raw.githubusercontent.com/easybuilders/easybuild-easyconfigs/refs/heads/develop/easybuild/easyconfigs/r/R-bundle-Bioconductor/R-bundle-Bioconductor-3.18-foss-2023a-R-4.3.2.eb && \
-        sed -i 's/4.3.2/4.3.3/' R-bundle-Bioconductor-3.18-foss-2023a-R-4.3.2.eb
-
-RUN bash -l -c "eb --prefix /apps -r /home/eb/.local/easybuild/easyconfigs/ -f R-bundle-Bioconductor-3.19-foss-2023b-R-4.4.1.eb --try-toolchain=gfbf,2023b"
-RUN bash -l -c "eb --prefix /apps -r /home/eb/.local/easybuild/easyconfigs/ -f R-bundle-Bioconductor-3.18-foss-2023a-R-4.3.2.eb --try-toolchain=gfbf,2023b"
+RUN bash -l -c "eb -f R-bundle-Bioconductor-3.19-gfbf-2023b-R-4.4.1.eb -r .:.local/easybuild/easyconfigs/ --prefix /apps/"
+RUN bash -l -c "eb -f R-bundle-Bioconductor-3.18-gfbf-2023b-R-4.3.3.eb -r .:.local/easybuild/easyconfigs/ --prefix /apps/"
 
 USER root
 
