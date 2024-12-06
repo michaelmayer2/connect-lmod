@@ -48,3 +48,5 @@ COPY scripts/R* /apps/wrappers/bin/
 
 RUN chmod +x /apps/wrappers/bin/*
 
+CMD [ "/opt/rstudio-connect/bin/connect --config /etc/rstudio-connect/rstudio-connect.gcfg"]
+
