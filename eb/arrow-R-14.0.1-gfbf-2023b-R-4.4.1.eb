@@ -21,7 +21,7 @@ checksums = ['5c70eafb1011f9d124bafb328afe54f62cc5b9280b7080e1e3d668f78c0e407e']
 dependencies = [
     ('R', '4.4.1'),
     ('R-bundle-CRAN', '2024.06', versionsuffix),
-    ('Arrow', '14.0.1'),  # arrow-R x.y.z[.N] only works with Arrow x.y.z
+    ('Arrow', '14.0.1', ''),  # arrow-R x.y.z[.N] only works with Arrow x.y.z
 ]
 
 start_dir = 'r'
