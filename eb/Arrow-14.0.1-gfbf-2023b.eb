@@ -7,7 +7,7 @@ homepage = 'https://arrow.apache.org'
 description = """Apache Arrow (incl. PyArrow Python bindings), a cross-language development platform
  for in-memory data."""
 
-toolchain = {'name': 'gfbf', 'version': '2023a'}
+toolchain = {'name': 'gfbf', 'version': '2023b'}
 
 source_urls = ['https://archive.apache.org/dist/%(namelower)s/%(namelower)s-%(version)s']
 sources = ['apache-arrow-%(version)s.tar.gz']
