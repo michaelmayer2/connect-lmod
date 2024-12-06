@@ -11,7 +11,7 @@ Listen = ":3939"
 
 [Authentication]
 ; Specifies the type of user authentication.
-Provider = "password"
+Provider = "pam"
 
 [R]
 ExecutableScanning = false
