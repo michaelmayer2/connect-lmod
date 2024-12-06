@@ -1,0 +1,28 @@
+version: "2.2"
+
+services:
+  posit-lmod:
+    image: mmayer123/posit-lmod
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SLURM_VERSION: ${SLURM_VERSION:-23.11.3-1}
+        PWB_VERSION: ${PWB_VERSION:-2024.09.0-375.pro3}
+        LAUNCHER_VERSION: ${LAUNCHER_VERSION}
+    container_name: posit
+    hostname: posit
+    privileged: true
+    volumes:
+      - home:/home
+    expose:
+      - "8787"
+      - "3939"
+    ports:
+      - "8787:8787"
+      - "3939:3939"
+    environment:
+      PCT_LICENSE: ${PCT_LICENSE}
+
+volumes:
+  home: 
