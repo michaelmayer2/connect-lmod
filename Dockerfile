@@ -48,5 +48,7 @@ COPY scripts/* /apps/wrappers/bin/
 
 RUN chmod +x /apps/wrappers/bin/*
 
+RUN useradd -s /bin/bash -m rstudio && echo -e "rstudio\nrstudio" | passwd rstudio
+
 ENTRYPOINT [ "/apps/wrappers/bin/connect.sh" ]
 
