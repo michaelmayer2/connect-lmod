@@ -8,8 +8,7 @@ version = '3.9.0'
 homepage = 'https://github.com/opencollab/arpack-ng'
 description = "ARPACK is a collection of Fortran77 subroutines designed to solve large scale eigenvalue problems."
 
-toolchain = {'name': 'foss', 'version': '2023b'}
-toolchainopts = {'pic': True, 'usempi': True}
+toolchain = {'name': 'gfbf', 'version': '2023b'}
 
 github_account = 'opencollab'
 
