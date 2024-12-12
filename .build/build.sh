@@ -40,7 +40,7 @@ aws iam add-role-to-instance-profile --instance-profile-name mmayer-EC2InstanceP
 aws ec2 run-instances \
     --image-id $AMI_ID \
     --count 1 \
-    --instance-initiated-shutdown-behavior stop \
+    --instance-initiated-shutdown-behavior terminate \
     --instance-type c5.4xlarge \
     --key-name michael.mayer@posit.co-test-rsa \
     --security-group-ids $SG_ID \
