@@ -22,6 +22,7 @@ aws iam add-role-to-instance-profile --instance-profile-name mmayer-EC2InstanceP
 aws ec2 run-instances \
     --image-id $AMI_ID \
     --count 1 \
+    --instance-initiated-shutdown-behavior terminate \
     --instance-type c5.4xlarge \
     --iam-instance-profile Name=mmayer-EC2InstanceProfile \
     --block-device-mappings "[{\"DeviceName\":\"/dev/sda1\",\"Ebs\":{\"VolumeSize\":100,\"DeleteOnTermination\":true}}]" \
