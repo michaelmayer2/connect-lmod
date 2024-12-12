@@ -41,8 +41,7 @@ aws ec2 run-instances \
     --image-id $AMI_ID \
     --count 1 \
     --instance-initiated-shutdown-behavior terminate \
-    --instance-type c5.4xlarge \
-    --key-name michael.mayer@posit.co-test-rsa \
+    --instance-type t3.2xlarge \
     --security-group-ids $SG_ID \
     --iam-instance-profile Name=mmayer-EC2InstanceProfile \
     --block-device-mappings "[{\"DeviceName\":\"/dev/sda1\",\"Ebs\":{\"VolumeSize\":100,\"DeleteOnTermination\":true}}]" \
