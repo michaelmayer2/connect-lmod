@@ -19,7 +19,7 @@ checksums = [
 
 # replace src include path with installation dir for $H5BLD_CPPFLAGS
 _regex = 's, -I[^[:space:]]+H5FDsubfiling , -I%(installdir)s/include ,g'
-postinstallcmds = ['sed -i -r "%s" %%(installdir)s/bin/%s' % (_regex, x) for x in ['h5c++', 'h5pcc']]
+postinstallcmds = ['sed -i -r "%s" %%(installdir)s/bin/%s' % (_regex, x) for x in ['h5c++', 'h5cc']]
 
 dependencies = [
     ('zlib', '1.2.13'),
