@@ -37,9 +37,9 @@ RUN bash -l -c "eb --skip-test-step --prefix /apps -r . R-4.3.3-gfbf-2023b.eb"
 
 RUN bash -l -c "eb --skip-test-step --prefix /apps -r . R-bundle-CRAN-2024.06-gfbf-2023b-R-4.4.1.eb"
 
-RUN bash -l -c "eb --skip-test-step --prefix /apps -r . arrow-R-14.0.1-gfbf-2023b-R-4.4.1.eb"
+#RUN bash -l -c "eb --skip-test-step --prefix /apps -r . arrow-R-14.0.1-gfbf-2023b-R-4.4.1.eb"
 
-RUN bash -l -c "eb --skip-test-step --prefix /apps -r . R-bundle-Bioconductor-3.19-gfbf-2023b-R-4.4.1.eb"
+#RUN bash -l -c "eb --skip-test-step --prefix /apps -r . R-bundle-Bioconductor-3.19-gfbf-2023b-R-4.4.1.eb"
 
 
 USER root
@@ -51,8 +51,8 @@ RUN curl -LO https://s3.amazonaws.com/rstudio-ide-build/server/jammy/amd64/rstud
 RUN echo "modules-bin-path=/etc/profile.d/lmod.sh" >> /etc/rstudio/rserver.conf
 RUN echo "r-versions-scan=0" >> /etc/rstudio/rserver.conf
 
-RUN echo -e "Module: R-bundle-Bioconductor/3.19-gfbf-2023b-R-4.4.1\nLabel: R 4.4.1 with Bioconductor 3.19" > /etc/rstudio/r-versions
-RUN echo -e "\n\n" >> /etc/rstudio/r-versions
+#RUN echo -e "Module: R-bundle-Bioconductor/3.19-gfbf-2023b-R-4.4.1\nLabel: R 4.4.1 with Bioconductor 3.19" > /etc/rstudio/r-versions
+#RUN echo -e "\n\n" >> /etc/rstudio/r-versions
 RUN echo -e "Module: R-bundle-CRAN/2024.06-gfbf-2023b-R-4.4.1\nLabel: R 4.4.1 with CRAN only" >> /etc/rstudio/r-versions
 RUN echo -e "\n\n" >> /etc/rstudio/r-versions
 RUN echo -e "Module: R/4.4.1-gfbf-2023b\nLabel: R 4.4.1 with base/rec only" >> /etc/rstudio/r-versions
