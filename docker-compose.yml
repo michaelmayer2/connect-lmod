@@ -18,6 +18,7 @@ services:
       - ${PWD}/scripts/connect.sh:/apps/wrappers/bin/connect.sh
       - ${PWD}/scripts/R-4.3.3.sh:/apps/wrappers/bin/R-4.3.3.sh
       - ${PWD}/scripts/R-4.4.1.sh:/apps/wrappers/bin/R-4.4.1.sh
+      - ${PWD}/logs:/var/log/rstudio
     expose:
       - "8787"
       - "3939"
