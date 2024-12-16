@@ -74,5 +74,5 @@ RUN chmod +x /apps/wrappers/bin/*
 
 RUN useradd -s /bin/bash -m rstudio && echo 'rstudio:rstudio' | chpasswd
 
-ENTRYPOINT [ "/apps/wrappers/bin/connect.sh" ]
+ENTRYPOINT [ "/apps/wrappers/bin/start.sh" ]
 
