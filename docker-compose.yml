@@ -16,7 +16,8 @@ services:
       - home:/home
       - ${PWD}/config/rstudio-connect.gcfg:/etc/rstudio-connect/rstudio-connect.gcfg
       - ${PWD}/scripts/connect.sh:/apps/wrappers/bin/connect.sh
-      - ${PWD}/scripts/connect.sh:/apps/wrappers/bin/workbench.sh
+      - ${PWD}/scripts/workbench.sh:/apps/wrappers/bin/workbench.sh
+      - ${PWD}/scripts/user.sh:/apps/wrappers/bin/user.sh
       - ${PWD}/scripts/start.sh:/apps/wrappers/bin/start.sh
       - ${PWD}/scripts/R-4.3.3.sh:/apps/wrappers/bin/R-4.3.3.sh
       - ${PWD}/scripts/R-4.4.1.sh:/apps/wrappers/bin/R-4.4.1.sh
@@ -30,6 +31,6 @@ services:
     environment:
       PCT_LICENSE: ${PCT_LICENSE}
       PWB_LICENSE: ${PWB_LICENSE}
-
+      RSTUDIO_PW: ${RSTUDIO_PW}
 volumes:
   home: 

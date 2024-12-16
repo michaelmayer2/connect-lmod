@@ -48,17 +48,18 @@ ARG PWB_VERSION="2024.12.0-463.pro4"
 
 RUN curl -LO https://s3.amazonaws.com/rstudio-ide-build/server/jammy/amd64/rstudio-workbench-${PWB_VERSION}-amd64.deb && apt install -y ./rstudio-workbench-${PWB_VERSION}-amd64.deb && rm -f rstudio-workbench-${PWB_VERSION}-amd64.deb 
 
+RUN rm -f /etc/launcher/launcher.{pem,pub}
 RUN echo "modules-bin-path=/etc/profile.d/lmod.sh" >> /etc/rstudio/rserver.conf
 RUN echo "r-versions-scan=0" >> /etc/rstudio/rserver.conf
 
-#RUN echo -e "Module: R-bundle-Bioconductor/3.19-gfbf-2023b-R-4.4.1\nLabel: R 4.4.1 with Bioconductor 3.19" > /etc/rstudio/r-versions
-#RUN echo -e "\n\n" >> /etc/rstudio/r-versions
-RUN echo -e "Module: R-bundle-CRAN/2024.06-gfbf-2023b-R-4.4.1\nLabel: R 4.4.1 with CRAN only" >> /etc/rstudio/r-versions
-RUN echo -e "\n\n" >> /etc/rstudio/r-versions
-RUN echo -e "Module: R/4.4.1-gfbf-2023b\nLabel: R 4.4.1 with base/rec only" >> /etc/rstudio/r-versions
-RUN echo -e "\n\n" >> /etc/rstudio/r-versions
-RUN echo -e "Module: R/4.3.3-gfbf-2023b\nLabel: R 4.3.3 with base/rec only" >> /etc/rstudio/r-versions
-RUN echo -e "\n\n" >> /etc/rstudio/r-versions
+#RUN echo "Module: R-bundle-Bioconductor/3.19-gfbf-2023b-R-4.4.1\nLabel: R 4.4.1 with Bioconductor 3.19" > /etc/rstudio/r-versions
+#RUN echo "\n\n" >> /etc/rstudio/r-versions
+RUN echo "Module: R-bundle-CRAN/2024.06-gfbf-2023b-R-4.4.1\nLabel: R 4.4.1 with CRAN only" >> /etc/rstudio/r-versions
+RUN echo "\n\n" >> /etc/rstudio/r-versions
+RUN echo "Module: R/4.4.1-gfbf-2023b\nLabel: R 4.4.1 with base/rec only" >> /etc/rstudio/r-versions
+RUN echo "\n\n" >> /etc/rstudio/r-versions
+RUN echo "Module: R/4.3.3-gfbf-2023b\nLabel: R 4.3.3 with base/rec only" >> /etc/rstudio/r-versions
+RUN echo "\n\n" >> /etc/rstudio/r-versions
 
 ARG PCT_VERSION="2024.11.0"
 
@@ -72,7 +73,9 @@ COPY scripts/* /apps/wrappers/bin/
 
 RUN chmod +x /apps/wrappers/bin/*
 
-RUN useradd -s /bin/bash -m rstudio && echo 'rstudio:rstudio' | chpasswd
+RUN useradd -s /bin/bash -m rstudio
+
+RUN echo "/apps/modules/all" >> /etc/lmod/modulespath
 
 ENTRYPOINT [ "/apps/wrappers/bin/start.sh" ]
 
