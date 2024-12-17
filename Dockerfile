@@ -2,7 +2,7 @@ FROM ubuntu:noble
 
 ARG PYTHON_VERSION="3.11.9"
 
-RUN apt-get update && apt-get install -y curl 
+RUN apt-get update && apt-get install -y curl gdebi-core 
 
 RUN curl -O https://cdn.rstudio.com/python/ubuntu-2404/pkgs/python-${PYTHON_VERSION}_1_amd64.deb && \
     apt install -y ./python-${PYTHON_VERSION}_1_amd64.deb && rm -f python*.deb
@@ -44,9 +44,9 @@ RUN bash -l -c "eb --optarch=GENERIC --skip-test-step --prefix /apps -r . R-bund
 
 USER root
 
-ARG PWB_VERSION="2024.12.0-463.pro4"
+ARG PWB_VERSION="2024.12.0-467.pro1"
 
-RUN curl -LO https://s3.amazonaws.com/rstudio-ide-build/server/jammy/amd64/rstudio-workbench-${PWB_VERSION}-amd64.deb && apt install -y ./rstudio-workbench-${PWB_VERSION}-amd64.deb && rm -f rstudio-workbench-${PWB_VERSION}-amd64.deb 
+RUN curl -LO https://s3.amazonaws.com/rstudio-ide-build/server/jammy/amd64/rstudio-workbench-${PWB_VERSION}-amd64.deb && gdebi -n ./rstudio-workbench-${PWB_VERSION}-amd64.deb && rm -f rstudio-workbench-${PWB_VERSION}-amd64.deb
 
 RUN rm -f /etc/launcher/launcher.{pem,pub}
 RUN echo "modules-bin-path=/etc/profile.d/lmod.sh" >> /etc/rstudio/rserver.conf

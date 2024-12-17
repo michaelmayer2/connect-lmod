@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        PWB_VERSION: ${PWB_VERSION:-2024.12.0-463.pro4}
+        PWB_VERSION: ${PWB_VERSION:-2024.12.0-467.pro1}
         PCT_VERSION: ${PCT_VERSION:-2024.11.0}
     container_name: posit
     hostname: posit
