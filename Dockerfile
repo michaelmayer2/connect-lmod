@@ -36,14 +36,14 @@ WORKDIR /home/eb
 
 RUN sed -i 's/ auto/ generic/' ~/.local/easybuild/easyconfigs/b/BLIS/BLIS-0.9.0-GCC-13.2.0.eb 
 
-RUN bash -l -c "eb --optarch=GENERIC --skip-test-step --prefix /apps -r . R-4.4.1-gfbf-2023b.eb"
-RUN bash -l -c "eb --optarch=GENERIC --skip-test-step --prefix /apps -r . R-4.3.3-gfbf-2023b.eb"
+RUN bash -l -c "eb --download-timeout=120 --optarch=GENERIC --skip-test-step --prefix /apps -r . R-4.4.1-gfbf-2023b.eb"
+RUN bash -l -c "eb --download-timeout=120 --optarch=GENERIC --skip-test-step --prefix /apps -r . R-4.3.3-gfbf-2023b.eb"
 
-RUN bash -l -c "eb --optarch=GENERIC --skip-test-step --prefix /apps -r . R-bundle-CRAN-2024.06-gfbf-2023b-R-4.4.1.eb"
+RUN bash -l -c "eb --download-timeout=120 --optarch=GENERIC --skip-test-step --prefix /apps -r . R-bundle-CRAN-2024.06-gfbf-2023b-R-4.4.1.eb"
 
-#RUN bash -l -c "eb --optarch=GENERIC --skip-test-step --prefix /apps -r . arrow-R-14.0.1-gfbf-2023b-R-4.4.1.eb"
+#RUN bash -l -c "eb --download-timeout=120 --optarch=GENERIC --skip-test-step --prefix /apps -r . arrow-R-14.0.1-gfbf-2023b-R-4.4.1.eb"
 
-#RUN bash -l -c "eb --optarch=GENERIC --skip-test-step --prefix /apps -r . R-bundle-Bioconductor-3.19-gfbf-2023b-R-4.4.1.eb"
+#RUN bash -l -c "eb --download-timeout=120 --optarch=GENERIC --skip-test-step --prefix /apps -r . R-bundle-Bioconductor-3.19-gfbf-2023b-R-4.4.1.eb"
 
 
 USER root
