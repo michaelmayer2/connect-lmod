@@ -32,6 +32,10 @@ RUN bash -l -c "pip install easybuild==4.9.4"
 COPY eb/*.eb /home/eb/
 
 WORKDIR /home/eb
+# BLIS does not work well with generic optarch, hence set it explicitly
+
+RUN sed -i 's/ auto/ generic/' ~/.local/easybuild/easyconfigs/b/BLIS/BLIS-0.9.0-GCC-13.2.0.eb 
+
 RUN bash -l -c "eb --optarch=GENERIC --skip-test-step --prefix /apps -r . R-4.4.1-gfbf-2023b.eb"
 RUN bash -l -c "eb --optarch=GENERIC --skip-test-step --prefix /apps -r . R-4.3.3-gfbf-2023b.eb"
 
