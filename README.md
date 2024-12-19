@@ -47,13 +47,17 @@ First, you will need to set the following mandatory environment variables:
 * `PWB_LICENSE`, `PCT_LICENSE` point to the license key for Posit Workbench and Connect, respectively
 * `RSTUDIO_PW` should point to a string that will server as the password for the `rstudio` account. Important: Do ***not*** use `rstudio` as password if working non-locally !
 
-Then you simpl can run 
+Then you simply can run 
 ```
 docker pull mmayer123/posit-lmod
 docker-compose up -d 
 ```
 
 and after a while you will have a docker environment up and running that exposes Posit Workbench on port 8787 and Posit Connect on port 3939.
+
+Please note that the container 
+* is 9 GB in size
+* will not work on a an M1/2/3/4 powered Mac, not even with Rosetta 2 and AppleV support. 
 
 ### Working with the environment
 
