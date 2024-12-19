@@ -40,7 +40,7 @@ aws iam add-role-to-instance-profile --instance-profile-name mmayer-EC2InstanceP
 aws ec2 run-instances \
     --image-id $AMI_ID \
     --count 1 \
-    --instance-initiated-shutdown-behavior terminate \
+    --instance-initiated-shutdown-behavior stop \
     --instance-type t3.2xlarge \
     --security-group-ids $SG_ID \
     --iam-instance-profile Name=mmayer-EC2InstanceProfile \
